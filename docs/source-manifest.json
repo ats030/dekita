@@ -4,15 +4,6 @@
   "excluded": [
     {
       "paths": [
-        ".github/workflows/cloud-build.yaml",
-        "cloudbuild.yaml",
-        "Dockerfile",
-        "nginx.conf"
-      ],
-      "reason": "Retired Cloud Run deployment path; production uses Cloudflare Workers Static Assets."
-    },
-    {
-      "paths": [
         ".hallmark/log.json",
         "README-cloudflare.md"
       ],
@@ -1114,5 +1105,5 @@
       "published_sha256": "1559a27a7c843f1e2c13deb317fc6e580b769f42ceb94d529a2abdc5c0d75692"
     }
   ],
-  "source_commit": "741d35353aab414b064050dcf8e08ffc3da59ab8"
+  "source_commit": "232a86c07c4072e832bd14caa85a280ac4f9eed1"
 }
