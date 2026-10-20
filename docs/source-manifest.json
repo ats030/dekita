@@ -1,0 +1,1101 @@
+{
+  "snapshot_date": "2026-10-20",
+  "basis": "Committed application source from the operational repository at the commit recorded in docs/validation.md; no operational repository history or uncommitted files.",
+  "excluded": [
+    {
+      "path": ".github/workflows/cloud-build.yaml, cloudbuild.yaml, Dockerfile, nginx.conf",
+      "reason": "Retired Cloud Run deployment path; production uses Cloudflare Workers Static Assets."
+    },
+    {
+      "path": ".hallmark/log.json, README-cloudflare.md",
+      "reason": "Operational log and deployment notes with internal issue and version identifiers; deployment steps are summarised in docs/architecture.md."
+    },
+    {
+      "path": ".gitignore",
+      "reason": "Replaced by a publication .gitignore."
+    },
+    {
+      "path": "tests/e2e/esm-*.spec.js, tests/e2e/network-events.spec.js",
+      "reason": "Debugging probes fixed to one local port; some fetch from about:blank or require a display. Module loading is covered by layout.spec.js, which opens every screen and asserts no page errors."
+    }
+  ],
+  "files": [
+    {
+      "path": "DESIGN.md",
+      "sha256": "4fb8db525cfb391ac61c501f59316833ff10db3fe0f515881404108da077f4a1",
+      "mode": "100644"
+    },
+    {
+      "path": "_headers",
+      "sha256": "aeabe6a4f3440b9131f3c4f03afc079baa3bc6da1852dd071c7c14bd372d02e2",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/bird-sound.mp3",
+      "sha256": "efd662ec475e16fe9cb4f46db6ca2cb7ab092fb42a91c57cf13df068b4ab3032",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/block-instruction.mp3",
+      "sha256": "a484ff9db3b298ae9a920832ff4bd33e7b8f42e5f7cefeaacf1bd6637c5defd7",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/cat-sound.mp3",
+      "sha256": "381f77a7c9238ca43fbdbe20f4d6341ec86ec22559b61fda1c8095bc0a255c62",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/color-question.mp3",
+      "sha256": "1e9a8a9267b1ad8749ec30ebd49cabf661d15c8dc91774dcbe5909b467c0f514",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/correct-feedback.mp3",
+      "sha256": "39dd72a0eead2474dc1aeb6211341bbdecc7de17b93461a0677b45be5ee1d66c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/correct.mp3",
+      "sha256": "ee6ae82cb2f5c7f2324403bee39ff9894df3e9d29dbd820be88c042813b6b34f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/count-question.mp3",
+      "sha256": "74a582243ea31789cf194ef3ac715f62d643cae0d0795ccc7d00be76d0440ad6",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/cow-sound.mp3",
+      "sha256": "007b1e82b33d443b380ef22217474ed5b8622d0cef359fcbfc33e7e4d5a15b08",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/dog-sound.mp3",
+      "sha256": "ecde2952588c8957c86e8aaf8c5bec8e95153b5caa143043f23e919ab8c9b37a",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/elephant-sound.mp3",
+      "sha256": "3455c1e555fcff8630b3ed21250525bde4a6ee555858e4840b6ec1f7491e493c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/error.mp3",
+      "sha256": "94f6180ea7ec02156744b489b6f76bd5aa130f18d75b0c2abb7e40ad10a7caff",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/game-over.mp3",
+      "sha256": "2249b9855b69bdb7d098cdf3efc5d5e6b7905a6c208c794357240032a5678b86",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/incorrect.mp3",
+      "sha256": "c1493dd00e7927531ae90955bcc714538337a56298e15c92558a5f629ec8f771",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/lion-sound.mp3",
+      "sha256": "27054993382676ee32c6e0961c6849e7c7d49377f0309a5492380b8c80691c5b",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/match-instruction.mp3",
+      "sha256": "4e1741488c2164d937a25280538f5da9680e187bbd0dac76d5388d2c463482d4",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/maze-hachi.mp3",
+      "sha256": "6d4fb92c3bc7eda275203486cd0c45b4d833c590765acc27200ad9bb1557f62a",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/maze-neko.mp3",
+      "sha256": "5f2673ac83d828ccb42a79ea6afab8383c054064e0d34ba5306e4b8bbe6f9d89",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/maze-saru.mp3",
+      "sha256": "4c5d112a7847ab98e64686399b66bac27915a4ce1e2f2288a3ef3ec5a19e4ac5",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/maze-usagi.mp3",
+      "sha256": "5594d285934f454dc995d2378e86bb63e68b212695ca244e76886110b6601619",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/maze-win10.mp3",
+      "sha256": "6b7c52e8bdecba763095038edf08480a1f7244e2034e8dac7a7edd53b9d4be6f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12354.mp3",
+      "sha256": "f149941c44b5c9c3abafb933e1df7dfe246bc13dcd79e769b1fd3c8dfbbb8532",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12356.mp3",
+      "sha256": "7cba09a15169a9303a41f6fb76e00f3d848967f8339e047eddac38126dbdbc87",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12358.mp3",
+      "sha256": "7cb936f0b7bbae17cd6fa4cf3d15417ca770613753a764deb112e4450c370797",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12360.mp3",
+      "sha256": "984cd5784ee3870a6e359b2e4cfc90d119bf068cabc1f6a4892a4cfc6b06710c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12362.mp3",
+      "sha256": "40815d71989a2d840ee2cf658a6992f6d85c61633e2cd998f1d84858da1a4d46",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12363.mp3",
+      "sha256": "e7176df8dbe6e10b02c0c1ec044dc78b97f62f35d927bb9848a425e8c2205e16",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12365.mp3",
+      "sha256": "b2c22c67283629affc1ca26a10961ad87d04da65f91139a9812730f941890221",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12367.mp3",
+      "sha256": "53bc17e95c4eb464134b3f49771f2618f57004d93f894d871b1277574d1b2bac",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12369.mp3",
+      "sha256": "05a6dbc16bd19243e77f0269094b963facc76605d6643ed3a619538ec02785ae",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12371.mp3",
+      "sha256": "5aaddff3953ea7a772f40dcd6ed1243a2aca509bbe1794a24aaa61e3f08e86f8",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12373.mp3",
+      "sha256": "f4bdc8dffca3d4767902e992e070737744caf8d9419dd6ca2b6075f27c23748c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12375.mp3",
+      "sha256": "1a5aa89445d8bb4e773c09fccd7803619a6e391def44a31e3c1923b5086daf77",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12377.mp3",
+      "sha256": "c841fa99eeb293568630184cfc8feee7956f94417c7ad2584b84432694739e4d",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12379.mp3",
+      "sha256": "60f727def7cd6819e2cbc9903a4af527d54c934600ce434d04ae85ea97518af9",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12381.mp3",
+      "sha256": "85c9cc60107b145ca14280919979eccfdb694284ebeda70f3326a8e3a5514e74",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12383.mp3",
+      "sha256": "7f3f638f99eb9e254364caa1a88dbb6ed2b5e0a5cf68f610f4359d653e438eb8",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12385.mp3",
+      "sha256": "990859f986e403b2a3cc400d7b8dfe80411f0b8f9f1643550de790429f7f689c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12388.mp3",
+      "sha256": "ded5bb15e2aa1af8dc3bbf220afe6219e0c110a2f89d569d44e7738272379f38",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12390.mp3",
+      "sha256": "7a644dfd26af0d6e05621e3fff97f923459c3ab63615733f4892b58384fbe56b",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12392.mp3",
+      "sha256": "e756037790af7826ac6b0aadfb7a9655ba124d1d089dfed7065f7a76446ebff9",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12394.mp3",
+      "sha256": "944a7153c1a9643e834c093772df121d0a5e7d21b533754395a92bc812ae56b3",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12395.mp3",
+      "sha256": "90e3d75a8e2f468ed665e61264ca67b0e43be6e2ece3586403080be320b0f3d6",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12396.mp3",
+      "sha256": "7279d5a83a319e2e08bd67dac8f217edeaa1ef2fcaed45ebdbc8eb0b359821a9",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12397.mp3",
+      "sha256": "92461cac4f1598a1a2a9ef2cb09b6596e3afd377861127eefa8c8ab9ee1605c7",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12398.mp3",
+      "sha256": "2bcf4e83fe87c9b0c1e6a663fbfc850cebd0e099aa93ce16ec2f3385e06c2fd1",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12399.mp3",
+      "sha256": "548a239d11fa15cf4250bb67fefc409f0116f3d091d0eb74889dee34d8284eb9",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12402.mp3",
+      "sha256": "6997093722d60e636262491a5d672bd18328fd4ab8b42d9a999ceb9ea7ee4229",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12405.mp3",
+      "sha256": "1dea3d87ec0c13286a5b87898f691c18d49e84c32592c2fedc0b3d735bca21be",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12408.mp3",
+      "sha256": "acb6995b56b561b98908d271c5b18485e5bd18aede5b89d321291294aba02107",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12411.mp3",
+      "sha256": "c64abab28f13291f8947479cf86c01f64ec6c80515dda5fb8dca6e641a3bd94a",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12414.mp3",
+      "sha256": "db6169056f4c8fe34ea29af27d92cfe0e79d8c11d535b37eb14bff35e288f98b",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12415.mp3",
+      "sha256": "44cb93db7d80e2a27071ed0dd67b8417273b03aae7a1f463bd1fd787a912b095",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12416.mp3",
+      "sha256": "155ae6d9153a395242b07f7fec54f5fc3f11f7719dcc6d4d5e17019ea12e666d",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12417.mp3",
+      "sha256": "3ab11e241cb371dc4e660ce47dab48c4f2e9ec934d89b5588c28764f860bfc87",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12418.mp3",
+      "sha256": "64af44d9cb39c89d4fc27d73042c84d39ea7b1371375d3c53155dd97e7e6caad",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12420.mp3",
+      "sha256": "f210619bcb1dfaa629bb04046428b9749450aebfec6cfcc4701321bd88ee0d69",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12422.mp3",
+      "sha256": "1ff4c87d856d54dd324c6db01b22bd58ab444c020649f3ae0c6900005cf5db1d",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12424.mp3",
+      "sha256": "90244cdb6cfac7ecf57761fa489c610e81b87b3fdc585c5fc38a597dd3713123",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12425.mp3",
+      "sha256": "2c691c46adaf7d5ce803d00639d6beb221540860ef80df5331eefe7f35b10d74",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12426.mp3",
+      "sha256": "5561fab3de25322f68395fa678387982abe598a1e2ef92e04bddb15d2eab981c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12427.mp3",
+      "sha256": "106088759d8fe15039915bb872d2f9cf752fd8460f229ec9df3c14237c370786",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12428.mp3",
+      "sha256": "9fe16a1d8ebeea50c3f2d480ca1bfb46cee60644fffd43794a21e71f286049cc",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12429.mp3",
+      "sha256": "a620c9eaae8dc1b867b2b49c45cfe554fbfd561562646e7b397a10b1b152db70",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12431.mp3",
+      "sha256": "62118fc070c283056798e84d2da104b1e1ff144b4110f5616f57ddcc45b01b5f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12434.mp3",
+      "sha256": "40815d71989a2d840ee2cf658a6992f6d85c61633e2cd998f1d84858da1a4d46",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/moji-char-12435.mp3",
+      "sha256": "b4a7f407a2a4dec7549935ec0e29b1afb4219f447119053f808899a4ba797af1",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/monkey-sound.mp3",
+      "sha256": "3446442143afc53bfd06934a52deef2c8393db57b02129c85b854cd39588da35",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/pig-sound.mp3",
+      "sha256": "2c6bbece0e39723984cc6b24100abc15d159be552bff3f57479ab3f6695e543a",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/pop.mp3",
+      "sha256": "39a9a945e4570928aaa7c0a5bff24581bfcf5c30795df6e3827090af70c6bac1",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/puzzle-instruction.mp3",
+      "sha256": "b89be08a0b59fcfdaa21ae2c316b0b5c8eeaa6c807450f548ef174eb90dd1221",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/retry.mp3",
+      "sha256": "6c52805e88661208f04170c516c4b67ecd5f674271d8fbd1ff073b3eab3c4515",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-correct.mp3",
+      "sha256": "066683744f623f899bda23220cb4b617691e49c1ab23c264fbbdf8552a4c72fc",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-instruction.mp3",
+      "sha256": "24d681f8a127ef6d9d63f75e3e9a9743f8786a58ac501b88dc1c3b93ac1c7e95",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12356.mp3",
+      "sha256": "fd930777968d29d4bf53eba622bb725d7caaf4f8ecb4678b6caa3da9e05cc4d5",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12358.mp3",
+      "sha256": "055196b56d9a9a872acb8aecbfb341f967b603a4441206c9025529ff1de285e2",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12363.mp3",
+      "sha256": "74fbd48d675a3f4d748119a85f02bf901b13f83edd69f39ea88bb2f870c93ae0",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12365.mp3",
+      "sha256": "c1122c2561dcc575f0db54425dbcdd113f3737a49d547270d539f354c0488f17",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12371.mp3",
+      "sha256": "5e9b6e7fd17887ca8f6a3f13a2cab789c6e47c37745254c16be235b3524a6f62",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12372.mp3",
+      "sha256": "a1506351b9681bf8bfae3e9e688dfcdeeac9f63a1ab81e24b7a8a998c764c622",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12375.mp3",
+      "sha256": "8ee0d050555ffe673501dd4e823e0557567ae497947b839e927721dc6374fbcd",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12377.mp3",
+      "sha256": "2f133b3e694f8559aaba389508db9ed1907bd6f8caa926f4f9fedfa09508a443",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12383.mp3",
+      "sha256": "1349e9f1b1cfceae7086e24a244a4688453a033b9d7a510797a3b8c005e3fa09",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12384.mp3",
+      "sha256": "4aaed46faa8197958d0816c15227b93ff7f93d6b0bd375be4eab014e3ba1de68",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12385.mp3",
+      "sha256": "7a1e336fb4de982bf5d412fd9dd4f447b11ca2bd920ad6cf71eeb4e37d1f0e6e",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12388.mp3",
+      "sha256": "3774161675bd7c8c51f1a05817fef2ab382a1429a6bf4ec39b24188047c7ee65",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12392.mp3",
+      "sha256": "c20c1be43520dc97437a1bb62ed566469f39dc3a1728f8389a3c0c427ab1511f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12394.mp3",
+      "sha256": "538aa9f0b8c05dff85393b1468d0627692ae6f225ab77d31c63b39f18ae2ef78",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12395.mp3",
+      "sha256": "27246fdb589b6ca7e921c314eae8fe439d31439687402f0be2bf1e594063cd1f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12396.mp3",
+      "sha256": "03bc75c69f25bb23d7b260d289631750c563376173fc0b0b68a5863afeeed325",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12397.mp3",
+      "sha256": "5e6fe269a200fb38a4b9d43eac1177b74c7994b4297f10de793a9cbc8030b28e",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12400.mp3",
+      "sha256": "52ec7b33387b76aeb2b3809197e8445e84ee84df373cf18358a4eba4d3981867",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12414.mp3",
+      "sha256": "cfe57aba3d1a16b95684e2b28eb4e56a0961663e2f8e55e1f8eba3f00ee7459a",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12415.mp3",
+      "sha256": "dcf0144a28926ff2499575540cb11d2e02f6e34524e7dac3f6ea39dade917ba4",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12417.mp3",
+      "sha256": "91e2a1bf0c23aa7a75b4cba78d11bd3c7b8338fca1fc0f2b6747ae6cd841fb1f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12425.mp3",
+      "sha256": "d8c47382ad78e171eb7e5645714448027e5480d01fb1015d3297ee474197f681",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-sound-12426.mp3",
+      "sha256": "7a7703e64556b8a300b850d7daf54897d8a2127c2eccb72b09d00d1aed2d6bca",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-banana.mp3",
+      "sha256": "2f4f9e90653719eb7632d8e71393318e353d998e63fbffbec2329500120a7687",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-buta.mp3",
+      "sha256": "43a7feaaf83f234fc542ba280d8e2c251b3f9832c1114184fac0eebb2dbb9820",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-chou.mp3",
+      "sha256": "add29c3791204ca39abaafbbe295cb38498b8769f21310e9b97b5a1af10f4a68",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-dango.mp3",
+      "sha256": "a71247099e97bc2c51eb8c2e96e112572f631e4f416f5e7045f7fa6c7237eea0",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-gorira.mp3",
+      "sha256": "b856d163157e762cdbe526276e8afdc68ccca070dd29dafdde04375e7d9f1754",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-ichigo.mp3",
+      "sha256": "f49976c499b0faccf9b5f34feb578218f762c72dcd3bf747ebf1b987ef07aebf",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-inu.mp3",
+      "sha256": "f5b542ee01634f9ff9cdf8bb95a4bef477c54c87e5070e14e5e3dde3d076c719",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-isu.mp3",
+      "sha256": "8cf1d6236619a44675790172109f0f48861a414a206ac4b98009be04202636c3",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kaba.mp3",
+      "sha256": "750faf1fac1c15f665ebc2c736e6425eae56eba6848960d5180ac0d06f01c36b",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kame.mp3",
+      "sha256": "c17708b2a70ef7bc767329218c099eeddf02bac3a7c565e996a4daf16525a3b7",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kani.mp3",
+      "sha256": "174b1e7d7cbae56428bdf13e197018ea34ce737ec653c35e789b95dea087badd",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kitsune.mp3",
+      "sha256": "ecd66df0002c48a724ac64d07397d613382b07c9421db46b270b307393ffeba0",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-koara.mp3",
+      "sha256": "df858600ad248ce7cdef6dea50d2e92d4968f70b18a69e330e1746a45bd22d97",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-koori.mp3",
+      "sha256": "78e8c17a6544b4cca8482a1089a8beba3f8fa2038cd86ee3892a84ca83ece9cb",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-koppu.mp3",
+      "sha256": "e335e7e5c48d3247cac03e7fbaef5d9a812fd073b952221bf81b11e8bbbed325",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kujira.mp3",
+      "sha256": "bf286879c36dd11e62030013a3b394608d32a88f757436c279cddadd4d84a7a4",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kuma.mp3",
+      "sha256": "637d365fc3de394f70069b7be790a78bfd5c96e83e0f4675bcaa4ddb7a3a1329",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kuri.mp3",
+      "sha256": "1d5af1da4155523f27cbf9e45fa3c20f79470869df73d580294fd847467be695",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kuruma.mp3",
+      "sha256": "58d479c036a2dbab97018b6cbe7148392f7e1d8c2f5921d6255d7dee27eac4a2",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-kutsu.mp3",
+      "sha256": "5243914dc2cf8061af36afed4fedeab87262efdcd0bce236534e93949aac152b",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-mame.mp3",
+      "sha256": "1bd4fe2133eda02d55359bedd7bd2655d597c9d2efa833d0f411715ed28a2be6",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-me.mp3",
+      "sha256": "3ab11e241cb371dc4e660ce47dab48c4f2e9ec934d89b5588c28764f860bfc87",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-megane.mp3",
+      "sha256": "ef42271b1705bef0d83ba3f7dbffef77d0d8b6fe694d4a55a4655782fd1151c8",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-mimi.mp3",
+      "sha256": "a0137258528742583469d47b25af447d8d65b0dd9ce93e8d4255b5621e84ae26",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-mitsubachi.mp3",
+      "sha256": "b9d73d38a191e3497c62d5055c3a321bed943474784cb3411b6126a2d677963a",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-momo.mp3",
+      "sha256": "fe29e2e69c5ac123737285ea2b6a695d5317be544a4775846123cbda129ea362",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-nasu.mp3",
+      "sha256": "e89031054ccca48d830a26647bf03d86bde647e46eb7ac2af838da5b5ad9e4f5",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-neko.mp3",
+      "sha256": "c76e33b211490621182411906b092377d1686c04aa7c383a7e49f9c1a8b3c064",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-niwatori.mp3",
+      "sha256": "9740c031879ca0ff16b806be19b5c191fa7d3b5e13c86d879e90b6dfd45b7598",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-nuigurumi.mp3",
+      "sha256": "52b058bf9bebe14bbf3b5ccb8ce9985e70cfdd8914f0a0331ca9d274dcf29b4d",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-rakko.mp3",
+      "sha256": "7451b0dbcc4bb030d80e27a0ea523833b82d6eb4c4eefe8524ccb534031270f9",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-rakuda.mp3",
+      "sha256": "c4dc0320354c58b586d9e09a591ec3e23f29b27897194fd2ddc42242ca64e63b",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-ringo.mp3",
+      "sha256": "683dc43cea59d80f4706ab5c64204e96cfc13441f907b92aee4eef3b8710c34c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-risu.mp3",
+      "sha256": "ca8440bff83b0d43bd3d7c52935b57ca9caedbfe886a9f4466f5be1fdae200aa",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-saru.mp3",
+      "sha256": "247e1782d2c99f4ad85f6b13c3fd9c619e0a8b912e768a09da6a27197863f7a6",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-shika.mp3",
+      "sha256": "c0d4bec6dbe86e7e7961b6931916826459eb9ce9c131184022c3da86e977c1b9",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-shimauma.mp3",
+      "sha256": "010ddc18ad73cf066233c79851b3a2a12868d9fc998f6c5a0d1767323c02dfcf",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-suika.mp3",
+      "sha256": "d76e852048ac1b9c6b5ec494da13a60efba31d393e6d66036c68ee8a4a8c2bc0",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-sushi.mp3",
+      "sha256": "e6b7bc6a8ce12c3ec5701d307431ba9268c508233ca629f5b0370dfe636b40ec",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-tako.mp3",
+      "sha256": "2e678fd0f63bcdc14298279051ead6f1bd2edda8e4df9515852edab8aaa41de3",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-tamago.mp3",
+      "sha256": "6cdd8827245ebbbd43b51e24c1ebf2105c355d76ef4245fa1dda0439eb4725f1",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-tokei.mp3",
+      "sha256": "4a595252b33d0bc0c787e855411d237afa35701e5b8dcebb72e6787162cb50b2",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-tomato.mp3",
+      "sha256": "cee558196739bc7716b935f8cf7efe319efc9e6f61b0c7a5f668915478cc679e",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-tora.mp3",
+      "sha256": "eb0a985619fa921d0f6c04988f5186f998af08d3c9b18ebe38077f385a8d2c8d",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-tsuki.mp3",
+      "sha256": "fd31efeceda0ebde85ca6335d4fc56d9e362623e3f7f859d41bf36824c96c93c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-uma.mp3",
+      "sha256": "99d49c1449cc04cc3c2ea68c151d40bb8beb29115cc28890474345a748f63b0c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-ushi.mp3",
+      "sha256": "d972d4b4a8cb36a87c9ac3e79a41c19037925935180e78434bcd8dd1dea331ba",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/shiritori-word-zou.mp3",
+      "sha256": "5201c36a2f5038f0aa7415d28f56ab72e81add5ba3d3ac6ee6c8ea1a04717f43",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-ambulance.mp3",
+      "sha256": "90bcb5b29263d1219a32f4d9669c5f60e1ed1ceee25564990b695ffa4b557fff",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-bell.mp3",
+      "sha256": "c5827866219dc6b0d46b7b210fbf434b11465e8f2861154be9de47860e1e68c3",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-car.mp3",
+      "sha256": "86bc718dc43d3f0e514c52257b97058694220c217aff45a28806db551ee2fe3c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-chicken.mp3",
+      "sha256": "fedf386e1b7fd8786dc194faf8dff710d1af346d5ace004ac29f3b3dbc17a47c",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-drum.mp3",
+      "sha256": "46ddbddbc665fcac3ade8eaf32d391677c41b9b729c420af57a5e86a3ac3eada",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-frog.mp3",
+      "sha256": "43a0fcc6d6fb17f7d2baed7c8cfbfffa41760d255ce276e72486fe7629333c0f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-piano.mp3",
+      "sha256": "90c8e621f69f02f96f1688d7d0836f1d94a70f0259e01d2903dadf762fa75a1d",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-question.mp3",
+      "sha256": "f1b10bcd723210283fef6ad8443d14b4e02b3ec27bfbe3884742346e7eeada7f",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/sound-train.mp3",
+      "sha256": "29309d48553c8c1ffe583ea67a44f770d6d3ebd8a47247aff9b5c6bc53cc92b0",
+      "mode": "100644"
+    },
+    {
+      "path": "audio/wrong.mp3",
+      "sha256": "f8c370af0950e65d4678f2cb3621b7b8b96ecebe8d7f31c04d85ae45e4e0868f",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/tool-license-cloudflare.yaml",
+      "sha256": "e89efcc7899112d794b6ca5f1d3b61b3c7e2d5af2afec9da9965b64f20c69815",
+      "mode": "100644"
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "8b2b7a415379d7399c906e0ee04c89ace90e1ea7fb04deb6ebc7861b4ddac7d0",
+      "mode": "100644"
+    },
+    {
+      "path": "generate-voicevox-audio.cjs",
+      "sha256": "1e08ec4c73648b6b4ee8ab1e50d20365cad18f6883df00cf5a45467ca111ed5a",
+      "mode": "100644"
+    },
+    {
+      "path": "index.html",
+      "sha256": "311b6ac9cf324273bdb17fbc2967b0307219901952c2b0744176b31343f54e69",
+      "mode": "100644"
+    },
+    {
+      "path": "migration.html",
+      "sha256": "3090aa60829fec37ebead43d2de4e02347fd5baca2efc513789fb3f2e268d5b2",
+      "mode": "100644"
+    },
+    {
+      "path": "migration.js",
+      "sha256": "09f0a198f4e383c06fea0e66ed5465a0f491515875acb8e8ffaa17d3c7cc2efc",
+      "mode": "100644"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "ac484d86705c8f49ab2a92cefd1d17695bba15d28fdc79bcc14cf5a5aff0b39d",
+      "mode": "100644"
+    },
+    {
+      "path": "package.json",
+      "sha256": "59e1e24db80ea5e2edb1296bc3bb8e9ed14a34bafb98b1e38168b457f602e4ce",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/build-cloudflare.py",
+      "sha256": "7c0ff6f1e8ccbb2a8a1bc0921853875eefbf31a434debdb53de09aa9a5721fc8",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/check-cloudflare.mjs",
+      "sha256": "285adc1c42d3d5eb43e68a03c55c43a239c205d000ff879159f3c4bff8108969",
+      "mode": "100644"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "dd61737d3958b8619331f05ad5b015a5365581c4c106271dbfd13453044b421d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/core/AudioManager.js",
+      "sha256": "6e3cc86c071033b892507915a21588dd9c2d01626f94e6c1a54d4f8b7598bf7d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/core/GameBase.js",
+      "sha256": "c58c02cef63dc0373fcfb3c8bb6f9a6958a42ec3aac9af04b227875088a23305",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/core/GameState.js",
+      "sha256": "492bc5b5223da7391c934ddaa272d34da5261423e37b63b77c69f8cbd46059e6",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/core/Progress.js",
+      "sha256": "536d7e9ad8d35bc8b557465bd4c72053edf11fadc6f84f244b15c1c3917e66c4",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/core/ScreenManager.js",
+      "sha256": "f5bc9e9117d9942d9a93a9a31a044e07dcfb8ccbc2b8cff4c4f871f9a81404c5",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/core/index.js",
+      "sha256": "188cb069155d304853932a5799327444958ed18996b4ba0bc4dc3353c4b9f6ce",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/data/MojiData.js",
+      "sha256": "26c3417e42fdd08d45093c4a292e55108353ea6844141c6ee01b2cc42e509131",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/data/ShiritoriWords.js",
+      "sha256": "14245843996065cb11159088370d11075980893fd5fa83a74b6b1cc7fe794229",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/data/SoundData.js",
+      "sha256": "6e572886e5104da03fa2f30fd8b15dcfd3d6b615b109ee58985be2bf8e37cf89",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/AnimalGame.js",
+      "sha256": "254bdfa1bbd3e3397598707c6adb5885fd161ba5096871e73ef6d910bdc5b672",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/BlockGame.js",
+      "sha256": "89ee19ab8ea7cf67b5ce2ff6340a2c2e7c15a65d7fd9357dd74c8dcdbee2c092",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/ColorGame.js",
+      "sha256": "45dd19629e47738ea092ebee9403411f91ce52f2fac3f6dcee5dc774564e73e8",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/CountGame.js",
+      "sha256": "fba70a603e0a5bc87bee0a222ad919d8d1df0ff726f071422995e2a7f9aec5dd",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/MatchGame.js",
+      "sha256": "594201e669a4e0499d37cbf2ead0810ca755d2a641fedf7586e9a67be59a1671",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/MazeGame.js",
+      "sha256": "98e945b5702df350852fd958bf3fde471580083f862909a05d9dfdd47742653c",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/MojiGame.js",
+      "sha256": "039985fc32a4f7656ea0a709318f796cb067bf6f14462af7a54b2f6a4a1cc2d0",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/PuzzleGame.js",
+      "sha256": "ed2635a4e9525f227c26c2a075c7e19da3dc2871b4b874ac802e82ec5ea900ee",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/ShiritoriGame.js",
+      "sha256": "6016492f3003fc993c462b060bd4dc57f683f2d6d14ab8172dd0b992d2b31d36",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/games/index.js",
+      "sha256": "e0801be95d4c4b0676efd4d510750822199d8370302b7fe22829ff06d703fe9c",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/index.js",
+      "sha256": "34d929bedcf0feae87912103a291eeb82174002d9f559a2d644f171fe738928e",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/utils/blocks/BlockPuzzle.js",
+      "sha256": "2dd461383b05faf0b6fa7958bc27961fa4b971ca948d6f25002cec20d63e0fda",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/utils/index.js",
+      "sha256": "e79b253b3381aa71c577a5ec84c08cd01f2ed50ccc7248e02f86e3abc075d886",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/utils/maze/PathGenerator.js",
+      "sha256": "5b9cf467a9454f9cb2e7cfe63eb135e9c6aec640c63bd9c68def930dfe583c5b",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/utils/pictureLayout.js",
+      "sha256": "e07ed8f2e05600bbf2c0d57d4f9ebed508c6a6caca4f898d5c06cfeebec22348",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/utils/random.js",
+      "sha256": "e90c3477767e27c7b975ad50badeeb7b3df44953c13e8dac7404195ecc71f2b7",
+      "mode": "100644"
+    },
+    {
+      "path": "src/modules/utils/storage.js",
+      "sha256": "9b1921d851dd41839371fa21f2d12e15f97378882f3319fdee972b1addd95baa",
+      "mode": "100644"
+    },
+    {
+      "path": "src/tests/setup.js",
+      "sha256": "075b52aef4de6f23630bb1c8cb020d332d376ff1573ec098411fa95eae0d05b6",
+      "mode": "100644"
+    },
+    {
+      "path": "style.css",
+      "sha256": "a36e8dca6efa4154a228e6430659332ca16b87366a489db3a9b9dbcc80d7b6eb",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/block-puzzle.test.js",
+      "sha256": "9659f9ab052bf095afff426a7be851a425bf2246264c3fa5532f5a8800d6676e",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/blocks.spec.js",
+      "sha256": "7c63f0df142d4082e36d362c5d8ed90f0e1fe713556a600367dfe97c6fbb632d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/game.spec.js",
+      "sha256": "e73c5bb2fe0f7ba70b66a9ac53b3e4751254c6bbf1f3d38fb9476caf29577546",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/layout.spec.js",
+      "sha256": "6c6084e3b15e43a01fc1c2c60fd02a964903ddfe14a77ba6b472c40be52befea",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/match-audio.spec.js",
+      "sha256": "7b408c4febb30604ecbe297272ad42ce0af258dc369eb49a05192aab70d62d58",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/match-score.spec.js",
+      "sha256": "ad57e69aa77f8b8aeb49e9694f3f260f390c0682cfbc639fada1eba6a731666a",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/maze-rounds.spec.js",
+      "sha256": "fbd0219f0e223fd3289a1cc42f177d61103593288a0a3fdf2b7b7849f4e3512d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/progress.spec.js",
+      "sha256": "cbe9ff3fc7ed3a1566f9e74c8e0072869431d3c0818ae0852f8b473a6f3bcdb7",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/puzzle-silhouette.spec.js",
+      "sha256": "acf5b52ad955d1bb7f9495422cd898fd72c4bb92439abb98cf37e35638c9e96e",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/result-navigation.spec.js",
+      "sha256": "9042a46c02b38be0d3933fdb7fd796c1db317164513487d75ecf7cf3354d2e86",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/shiritori.spec.js",
+      "sha256": "1acf7eabfb236490d5fcb1662038ae844eb8abf2db4eaf1ebea49bb41b9bca5a",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/maze-generator.test.js",
+      "sha256": "934ff65c43fc011c4aecdf86ddaa96445b80acc8606e5ab9712d007607d2946a",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/moji-data.test.js",
+      "sha256": "1cb5675fde7d873cd42cdb7f9408fc8ad4bd2ed789e5eabe9558bfc5762f5dc9",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/picture-layout.test.js",
+      "sha256": "ea99dd041587d534dbd15897ff9fab732a92ff148f653fb5f81abbd0a7962ab7",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/shiritori-data.test.js",
+      "sha256": "5c5c684147cff485d335818cc2d324817a179081085c5df17e160155c4a3ff6d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/sound-data.test.js",
+      "sha256": "aa76e68601a515c08595d998d84ac344607fd2c1e9d79462434271215042cdbd",
+      "mode": "100644"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "sha256": "98dade0f4172994b006cd9956b9631c97a1d3be6aa0a5ecdad37e38d147c4331",
+      "mode": "100644"
+    }
+  ],
+  "publication_adjustments": [
+    {
+      "path": "index.html",
+      "reason": "Removed the local-network visit-log script tag; it only works inside the private LAN and is not part of the game.",
+      "published_sha256": "b1edc81cb387b401bef01654a498fd5c5fa487abda4e8694f9ddd922e78c3a18"
+    },
+    {
+      "path": "migration.html",
+      "reason": "Removed the local-network visit-log script tag; it only works inside the private LAN and is not part of the game.",
+      "published_sha256": "1559a27a7c843f1e2c13deb317fc6e580b769f42ceb94d529a2abdc5c0d75692"
+    },
+    {
+      "path": "generate-voicevox-audio.cjs",
+      "reason": "Replaced the absolute operational output path with a path relative to the script so the generator works from any checkout.",
+      "published_sha256": "a522e37ddd853e583aa86b2fae0183ea72bae4c572521b8f134131f39fa2fb03"
+    }
+  ]
+}

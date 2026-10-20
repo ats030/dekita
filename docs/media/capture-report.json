@@ -1,0 +1,52 @@
+{
+  "profile": "actual static game from this checkout; files served through a routed placeholder origin",
+  "viewport": {
+    "width": 1024,
+    "height": 768
+  },
+  "screenshots": 6,
+  "assertions": [
+    "title screen shows the VOICEVOX:ずんだもん credit",
+    "count game accepts the correct answer",
+    "color, shiritori and block games open and return home",
+    "result screen returns home",
+    "no external requests",
+    "no page errors"
+  ],
+  "staged_state": "The result screen is reached by calling endGame() with a preset score; it does not show a played-through block round.",
+  "requests": [
+    "/",
+    "/audio/block-instruction.mp3",
+    "/audio/color-question.mp3",
+    "/audio/correct.mp3",
+    "/audio/count-question.mp3",
+    "/audio/game-over.mp3",
+    "/audio/pop.mp3",
+    "/audio/shiritori-instruction.mp3",
+    "/audio/shiritori-sound-12397.mp3",
+    "/audio/shiritori-word-megane.mp3",
+    "/src/main.js",
+    "/src/modules/core/AudioManager.js",
+    "/src/modules/core/GameBase.js",
+    "/src/modules/core/GameState.js",
+    "/src/modules/core/Progress.js",
+    "/src/modules/core/ScreenManager.js",
+    "/src/modules/data/MojiData.js",
+    "/src/modules/data/ShiritoriWords.js",
+    "/src/modules/data/SoundData.js",
+    "/src/modules/games/AnimalGame.js",
+    "/src/modules/games/BlockGame.js",
+    "/src/modules/games/ColorGame.js",
+    "/src/modules/games/CountGame.js",
+    "/src/modules/games/MatchGame.js",
+    "/src/modules/games/MazeGame.js",
+    "/src/modules/games/MojiGame.js",
+    "/src/modules/games/PuzzleGame.js",
+    "/src/modules/games/ShiritoriGame.js",
+    "/src/modules/index.js",
+    "/src/modules/utils/blocks/BlockPuzzle.js",
+    "/src/modules/utils/maze/PathGenerator.js",
+    "/src/modules/utils/pictureLayout.js",
+    "/style.css"
+  ]
+}

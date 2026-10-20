@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>できた！</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <header>
+      <h1>できた！</h1>
+    </header>
+    
+    <div id="title-screen" class="screen">
+      <div class="mode-buttons">
+        <button id="start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">🔢</span><span>すうじ</span></button>
+        <button id="color-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">🎨</span><span>いろ</span></button>
+        <button id="animal-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">🔊</span><span>おと</span></button>
+        <button id="maze-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">🌀</span><span>めいろ</span></button>
+        <button id="match-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">💭</span><span>おなじ</span></button>
+        <button id="puzzle-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">👤</span><span>かたち</span></button>
+        <button id="shiritori-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">🔗</span><span>しりとり</span></button>
+        <button id="moji-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">あ</span><span>もじ</span></button>
+        <button id="block-start-btn" class="game-btn"><span class="mode-icon" aria-hidden="true">🧱</span><span>ぶろっく</span></button>
+      </div>
+      <p class="voice-credit">おんせい: VOICEVOX:ずんだもん</p>
+    </div>
+    
+    <div id="color-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div class="score-info">
+          <span id="color-progress-text" class="progress-dots"></span>
+        </div>
+        <button id="color-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      
+      <div id="color-question-area" class="question-area">
+        <p id="color-question-text" class="question-text">これは なにいろかな？</p>
+        <div id="color-emoji-display" class="color-emoji-display"></div>
+        <div id="color-answer-buttons" class="answer-buttons"></div>
+      </div>
+      
+      <div id="color-feedback-area" role="status" aria-live="polite" class="feedback-area auto-feedback" style="display: none;">
+        <p id="color-feedback-text" class="feedback-text">せいかい!</p>
+        <button id="color-next-btn" class="next-btn">つぎへ</button>
+      </div>
+    </div>
+    
+    <div id="game-screen" class="screen hidden">
+      <div class="score-board">
+        <div class="score-info">
+          <span id="progress-text" class="progress-dots"></span>
+        </div>
+        <button id="reset-btn" class="reset-btn">もどる</button>
+      </div>
+      
+       <div id="question-area" class="question-area">
+         <p id="question-text" class="question-text">なにが いくつ?</p>
+         <div id="picture-area" class="picture-area"></div>
+         <div id="answer-buttons" class="answer-buttons"></div>
+         <div id="number-grid" class="number-grid"></div>
+       </div>
+      
+      <div id="feedback-area" role="status" aria-live="polite" class="feedback-area auto-feedback" style="display: none;">
+        <p id="feedback-text" class="feedback-text">せいかい!</p>
+        <button id="next-btn" class="next-btn">つぎへ</button>
+      </div>
+    </div>
+    
+    <div id="match-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div class="score-info">
+          <span id="match-progress-text" class="progress-dots"></span>
+        </div>
+        <button id="match-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      
+      <div id="match-grid-area" class="question-area">
+        <div id="match-grid" class="match-grid"></div>
+      </div>
+      
+      <div id="match-feedback-area" role="status" aria-live="polite" class="feedback-area" style="display: none;">
+        <p id="match-feedback-text" class="feedback-text">せいかい!</p>
+        <button id="match-next-btn" class="next-btn">もういっこ</button>
+      </div>
+    </div>
+    
+    <div id="moji-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div id="moji-progress" class="progress-dots"></div>
+        <button id="moji-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      <div class="question-area moji-area">
+        <div class="moji-question">
+          <button id="moji-current" class="shiritori-current moji-current">
+            <span id="moji-current-emoji" class="shiritori-current-emoji" aria-hidden="true"></span><span aria-hidden="true">🔊</span>
+          </button>
+          <ol id="moji-slots" class="moji-slots" aria-label="にゅうりょくした もじ"></ol>
+        </div>
+        <div id="moji-chart" class="moji-chart"></div>
+      </div>
+      <div id="moji-feedback-area" class="feedback-area" role="status" aria-live="polite" style="display: none;">
+        <p id="moji-feedback-text" class="feedback-text"></p>
+      </div>
+    </div>
+
+    <div id="shiritori-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div id="shiritori-progress" class="progress-dots"></div>
+        <button id="shiritori-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      <div class="question-area shiritori-question-area">
+        <ol id="shiritori-chain" class="shiritori-chain" aria-label="つないだ ことば"></ol>
+        <div class="shiritori-question">
+          <button id="shiritori-current" class="shiritori-current">
+            <span id="shiritori-current-emoji" class="shiritori-current-emoji" aria-hidden="true"></span>
+            <span id="shiritori-current-name"></span><span aria-hidden="true">🔊</span>
+          </button>
+          <p id="shiritori-prompt" class="shiritori-prompt"></p>
+        </div>
+        <div id="shiritori-answers" class="answer-buttons"></div>
+      </div>
+      <div id="shiritori-feedback-area" class="feedback-area" role="status" aria-live="polite" style="display: none;">
+        <p id="shiritori-feedback-text" class="feedback-text"></p>
+      </div>
+    </div>
+
+    <div id="block-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div id="block-progress" class="progress-dots"></div>
+        <button id="block-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      <div class="question-area block-play">
+        <div class="block-tools">
+          <p id="block-instruction" class="block-instruction" aria-live="polite">ぶろっくを もってきてね</p>
+        </div>
+        <div id="block-board" class="block-board" role="group" aria-label="ぶろっくを はめる わく"></div>
+        <div id="block-tray" class="block-tray" role="group" aria-label="はこんで はめる ぶろっく"></div>
+      </div>
+      <div id="block-feedback-area" class="feedback-area" role="status" aria-live="polite" style="display: none;">
+        <p id="block-feedback-text" class="feedback-text"></p>
+      </div>
+    </div>
+
+    <div id="result-screen" class="screen hidden">
+      <h2>ぜんぶ できたね！</h2>
+      <svg class="completion-star" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 5 64 34 96 39 73 62 78 94 50 79 22 94 27 62 4 39 36 34Z" />
+      </svg>
+      <div class="result-actions">
+        <button id="replay-btn" class="game-btn">もういっかい</button>
+        <button id="result-home-btn" class="game-btn">ほかのあそび</button>
+      </div>
+    </div>
+
+    
+      <div id="puzzle-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div class="score-info">
+          <span id="puzzle-progress-text" class="progress-dots"></span>
+        </div>
+        <button id="puzzle-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      
+      <div class="puzzle-emoji-area">
+        <p class="puzzle-instruction">おなじ かたちを タッチしてね</p>
+        <div id="puzzle-drag-emoji" class="puzzle-drag-emoji">🐶</div>
+      </div>
+      
+      <div class="question-area">
+        <div id="puzzle-grid" class="puzzle-grid"></div>
+      </div>
+      
+      <div id="puzzle-feedback-area" role="status" aria-live="polite" class="feedback-area" style="display: none;">
+        <p id="puzzle-feedback-text" class="feedback-text">せいかい！</p>
+      </div>
+    </div>
+    
+    <div id="maze-play-screen" class="screen hidden">
+      <div class="score-board">
+        <div class="score-info">
+          <span id="maze-progress-text" class="progress-dots"></span>
+        </div>
+        <button id="maze-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      
+      <div class="question-area">
+        <canvas id="maze-canvas" class="maze-canvas"></canvas>
+      </div>
+      
+      <div id="maze-feedback-area" role="status" aria-live="polite" class="feedback-area" style="display: none;">
+        <p id="maze-feedback-text" class="feedback-text"></p>
+        <button id="maze-next-btn" class="next-btn">つぎへ</button>
+      </div>
+    </div>
+    
+    <div id="animal-game-screen" class="screen hidden">
+      <div class="score-board">
+        <div class="score-info">
+          <span id="animal-progress-text" class="progress-dots"></span>
+        </div>
+        <button id="animal-reset-btn" class="reset-btn">もどる</button>
+      </div>
+      
+      <div id="animal-question-area" class="question-area">
+        <p id="animal-question-text" class="question-text">なんの おとかな？</p>
+        <div id="animal-picture-area" class="picture-area"></div>
+        <div id="animal-answer-buttons" class="answer-buttons"></div>
+      </div>
+      
+      <div id="animal-feedback-area" role="status" aria-live="polite" class="feedback-area auto-feedback" style="display: none;">
+        <p id="animal-feedback-text" class="feedback-text">せいかい!</p>
+        <button id="animal-next-btn" class="next-btn">つぎへ</button>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
