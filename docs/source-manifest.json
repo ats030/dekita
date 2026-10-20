@@ -13,10 +13,6 @@
     {
       "path": ".gitignore",
       "reason": "Replaced by a publication .gitignore."
-    },
-    {
-      "path": "tests/e2e/esm-*.spec.js, tests/e2e/network-events.spec.js",
-      "reason": "Module-loading debugging probes. They pass headless against the app origin since monorepo commit e8e3fa4d, but duplicate coverage: module loading is covered by layout.spec.js, which opens every screen and asserts no page errors."
     }
   ],
   "files": [
@@ -1006,6 +1002,46 @@
       "mode": "100644"
     },
     {
+      "path": "tests/e2e/esm-console.spec.js",
+      "sha256": "6a5f88960c2875d6357c86b5cf78f131e76b24e20174c2392c0ebe6119627627",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-content.spec.js",
+      "sha256": "8f1dc04a79c89d580f4dc6db8587256845be2a599fc32362351786e7cee35c5b",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-direct.spec.js",
+      "sha256": "9f81b755898f555a3c65ab24517fe34ce28fdcb92d04866a29d1932d19cd45e0",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-eval.spec.js",
+      "sha256": "a5513bbe81e9a3ac90c9058ddd46b48bca16bec02d4d82a835ead3c213ba534e",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-fetch-content.spec.js",
+      "sha256": "b94223f9c4767bf0c1bf5b4a7fbd80c2715ed79d230ada48f61e6e09244d8a03",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-fetch.spec.js",
+      "sha256": "68961b41f2e182a6466fac5c9f8fa07fcf86c7413670c2f390eca32a485713b7",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-headers.spec.js",
+      "sha256": "3594ad4b2e4d1cb9d9d6e23ed060e0e6fdd36a38f5aa73f65ac73adfb170db20",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/esm-syntax.spec.js",
+      "sha256": "49278c96a61630b411af4cf8458e1fef5fb2798cd4227e91777be59b990373fd",
+      "mode": "100644"
+    },
+    {
       "path": "tests/e2e/game.spec.js",
       "sha256": "e73c5bb2fe0f7ba70b66a9ac53b3e4751254c6bbf1f3d38fb9476caf29577546",
       "mode": "100644"
@@ -1028,6 +1064,11 @@
     {
       "path": "tests/e2e/maze-rounds.spec.js",
       "sha256": "fbd0219f0e223fd3289a1cc42f177d61103593288a0a3fdf2b7b7849f4e3512d",
+      "mode": "100644"
+    },
+    {
+      "path": "tests/e2e/network-events.spec.js",
+      "sha256": "efb08bbfe8056120bf7afab8092c8619f59c14db85f70b3e42ae30c5c01a3044",
       "mode": "100644"
     },
     {
