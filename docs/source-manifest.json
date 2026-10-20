@@ -824,7 +824,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "59e1e24db80ea5e2edb1296bc3bb8e9ed14a34bafb98b1e38168b457f602e4ce",
+      "sha256": "391deee3912dcb4660832d4611bcf4b4bd0825a1df5798111adf497831168af4",
       "mode": "100644"
     },
     {
@@ -849,7 +849,7 @@
     },
     {
       "path": "src/modules/core/AudioManager.js",
-      "sha256": "6e3cc86c071033b892507915a21588dd9c2d01626f94e6c1a54d4f8b7598bf7d",
+      "sha256": "af08e4a59821c69a72090c0bb433b64a749e54f850ec170d238a9b587f26ecda",
       "mode": "100644"
     },
     {
@@ -859,7 +859,7 @@
     },
     {
       "path": "src/modules/core/GameState.js",
-      "sha256": "492bc5b5223da7391c934ddaa272d34da5261423e37b63b77c69f8cbd46059e6",
+      "sha256": "bfd85d1d8bbf30fb417ea2b418074186dc6ef694f681818b98eec1f97f84e343",
       "mode": "100644"
     },
     {
@@ -944,7 +944,7 @@
     },
     {
       "path": "src/modules/index.js",
-      "sha256": "34d929bedcf0feae87912103a291eeb82174002d9f559a2d644f171fe738928e",
+      "sha256": "ccddc9431679b37a0eb4d2337f3dc832cadb8e90151de33ae47633ff3f2deedb",
       "mode": "100644"
     },
     {
@@ -954,7 +954,7 @@
     },
     {
       "path": "src/modules/utils/index.js",
-      "sha256": "e79b253b3381aa71c577a5ec84c08cd01f2ed50ccc7248e02f86e3abc075d886",
+      "sha256": "42d5bdfd4343d80aa026a199ee4541f1c6ec7e493d8b0c42d9b5a23bffeae934",
       "mode": "100644"
     },
     {
@@ -970,11 +970,6 @@
     {
       "path": "src/modules/utils/random.js",
       "sha256": "e90c3477767e27c7b975ad50badeeb7b3df44953c13e8dac7404195ecc71f2b7",
-      "mode": "100644"
-    },
-    {
-      "path": "src/modules/utils/storage.js",
-      "sha256": "9b1921d851dd41839371fa21f2d12e15f97378882f3319fdee972b1addd95baa",
       "mode": "100644"
     },
     {
@@ -1090,5 +1085,5 @@
       "published_sha256": "b1edc81cb387b401bef01654a498fd5c5fa487abda4e8694f9ddd922e78c3a18"
     }
   ],
-  "source_commit": "a33cef61c5b88448144deb2c695667b4c8f3f0ab"
+  "source_commit": "611ee77fc5549f82add6389ea17bd896baeb1e45"
 }

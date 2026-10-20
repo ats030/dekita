@@ -23,83 +23,34 @@ export function init() {
   
   audioManager.setGameState(gameState);
   
-  const countGame = new CountGame(gameState, audioManager, screenManager);
-  
-  const colorGame = new ColorGame(gameState, audioManager, screenManager);
-  
-  const mazeGame = new MazeGame(gameState, audioManager, screenManager);
-  
-  const matchGame = new MatchGame(gameState, audioManager, screenManager);
-  
-  const puzzleGame = new PuzzleGame(gameState, audioManager, screenManager);
-  
-  const animalGame = new AnimalGame(gameState, audioManager, screenManager);
-  
-  const shiritoriGame = new ShiritoriGame(gameState, audioManager, screenManager);
-
-  const mojiGame = new MojiGame(gameState, audioManager, screenManager);
-
-  const blockGame = new BlockGame(gameState, audioManager, screenManager);
+  const gameClasses = {
+    countGame: CountGame,
+    colorGame: ColorGame,
+    mazeGame: MazeGame,
+    matchGame: MatchGame,
+    puzzleGame: PuzzleGame,
+    animalGame: AnimalGame,
+    shiritoriGame: ShiritoriGame,
+    mojiGame: MojiGame,
+    blockGame: BlockGame
+  };
+  const games = {};
+  for (const [name, GameClass] of Object.entries(gameClasses)) {
+    games[name] = new GameClass(gameState, audioManager, screenManager);
+  }
 
   // ゲームモジュールを ScreenManager に設定
-  screenManager.setGameModules({
-    countGame,
-    colorGame,
-    mazeGame,
-    matchGame,
-    puzzleGame,
-    animalGame,
-    shiritoriGame,
-    mojiGame,
-    blockGame
-  });
-  
-  // 各ゲームモジュールの初期化をtry-catchで囲む
-  try {
-    countGame.init(document);
-    console.log('[gameApp] CountGame initialized');
-  } catch (err) {
-    console.error('[gameApp] CountGame init error:', err);
+  screenManager.setGameModules(games);
+
+  // 1つのゲームの初期化失敗で他のゲームを止めない
+  for (const game of Object.values(games)) {
+    try {
+      game.init(document);
+      console.log(`[gameApp] ${game.constructor.name} initialized`);
+    } catch (err) {
+      console.error(`[gameApp] ${game.constructor.name} init error:`, err);
+    }
   }
-  
-  try {
-    colorGame.init(document);
-    console.log('[gameApp] ColorGame initialized');
-  } catch (err) {
-    console.error('[gameApp] ColorGame init error:', err);
-  }
-  
-  try {
-    mazeGame.init(document);
-    console.log('[gameApp] MazeGame initialized');
-  } catch (err) {
-    console.error('[gameApp] MazeGame init error:', err);
-  }
-  
-  try {
-    matchGame.init(document);
-    console.log('[gameApp] MatchGame initialized');
-  } catch (err) {
-    console.error('[gameApp] MatchGame init error:', err);
-  }
-  
-  try {
-    puzzleGame.init(document);
-    console.log('[gameApp] PuzzleGame initialized');
-  } catch (err) {
-    console.error('[gameApp] PuzzleGame init error:', err);
-  }
-  
-  try {
-    animalGame.init(document);
-    console.log('[gameApp] AnimalGame initialized');
-  } catch (err) {
-    console.error('[gameApp] AnimalGame init error:', err);
-  }
-  
-  shiritoriGame.init(document);
-  mojiGame.init(document);
-  blockGame.init(document);
 
   document.getElementById('replay-btn').addEventListener('click', () => {
     audioManager.stopAll();
@@ -114,14 +65,6 @@ export function init() {
     gameState,
     audioManager,
     screenManager,
-    countGame,
-    colorGame,
-    mazeGame,
-    matchGame,
-    puzzleGame,
-    animalGame,
-    shiritoriGame,
-    mojiGame,
-    blockGame
+    ...games
   };
 }

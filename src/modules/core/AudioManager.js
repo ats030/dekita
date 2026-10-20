@@ -232,12 +232,6 @@ export class AudioManager {
     });
   }
 
-  saveScore(score) {
-    if (score > this.state.highScore) {
-      localStorage.setItem('gakushuGameHighScore', score);
-    }
-  }
-
   trackSingleSound(audio) {
     this.singleSounds.add(audio);
     const release = () => this.singleSounds.delete(audio);

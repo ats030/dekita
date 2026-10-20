@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "npx http-server -p 8525",
-    "test:unit": "echo 'Unit tests skipped - install vitest to run'",
+    "test:unit": "node --test tests/*.test.js",
     "test:e2e": "playwright test"
   },
   "devDependencies": {
