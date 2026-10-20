@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test';
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-01-01') });
   await page.clock.pauseAt(new Date('2026-01-01T00:00:01Z'));
   await page.route('http://ubuntu-server-app:8526/**', route => route.abort());
-  await page.goto(base);
+  await page.goto('/');
 });
 async function progress(page, screen, completed, total) {
   const indicator = page.locator(`#${screen} .progress-dots`);

@@ -5,8 +5,6 @@
 
 import { test, expect } from '@playwright/test';
 
-const base = process.env.DEKITA_TEST_URL || 'http://localhost:8525';
-
 test.setTimeout(180000);
 
 test.use({ 
@@ -21,27 +19,11 @@ test.use({
   timeout: 180000
 });
 
-let serverProcess = null;
-
 test.describe('Dekita Game - E2E Tests', () => {
-  test.beforeAll(async () => {
-    // An explicit DEKITA_TEST_URL means the caller already runs the server.
-    if (process.env.DEKITA_TEST_URL) return;
-    const { exec } = await import('child_process');
-    serverProcess = exec('curl -s http://localhost:8525/index.html > /dev/null 2>&1 || npx http-server -p 8525 > /dev/null 2>&1 &');
-    await new Promise(resolve => setTimeout(resolve, 1000));
-  });
-
-  test.afterAll(async () => {
-    if (serverProcess) {
-      serverProcess.kill();
-    }
-  });
-
   test('should load the game page', async ({ page }) => {
     page.on('console', msg => console.log('[BROWSER]', msg.text()));
     const startTime = Date.now();
-    const response = await page.goto(`${base}/index.html`, { timeout: 120000 });
+    const response = await page.goto(`/index.html`, { timeout: 120000 });
     console.log('goto finished, response:', response?.status(), 'elapsed:', Date.now() - startTime, 'ms');
     
     try {
@@ -55,13 +37,13 @@ test.describe('Dekita Game - E2E Tests', () => {
   });
 
   test('should show title screen initially', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     expect(await page.locator('#title-screen').getAttribute('class')).not.toContain('hidden');
     expect(await page.locator('#game-screen').getAttribute('class')).toContain('hidden');
   });
 
   test('should start number game directly without select screen', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     await page.waitForSelector('#start-btn');
     const gameAppExists = await page.evaluate(() => !!window.gameApp);
     console.log('gameApp exists:', gameAppExists);
@@ -77,7 +59,7 @@ test.describe('Dekita Game - E2E Tests', () => {
   });
 
   test('should display color game screen when clicking いろ button', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     const colorGameExists = await page.evaluate(() => !!window.gameApp?.colorGame);
     console.log('colorGame exists:', colorGameExists);
     await page.click('#color-start-btn');
@@ -86,14 +68,14 @@ test.describe('Dekita Game - E2E Tests', () => {
   });
 
   test('should start maze game directly without theme select screen', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     await page.click('#maze-start-btn');
     await page.waitForSelector('#maze-play-screen:not(.hidden)', { timeout: 60000 });
     expect(await page.locator('#maze-play-screen').getAttribute('class')).not.toContain('hidden');
   });
 
   test('should show five progress dots during maze game', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     await page.click('#maze-start-btn');
     await page.waitForSelector('#maze-play-screen:not(.hidden)', { timeout: 60000 });
     console.log('maze play screen visible');
@@ -104,7 +86,7 @@ test.describe('Dekita Game - E2E Tests', () => {
   });
 
 test('should show correct feedback after clicking wrong canvas area', async ({ page }) => {
-  await page.goto(`${base}/index.html`);
+  await page.goto(`/index.html`);
   await page.click('#maze-start-btn');
   await page.waitForSelector('#maze-play-screen:not(.hidden)', { timeout: 60000 });
   await page.waitForSelector('#maze-canvas.maze-canvas', { timeout: 60000 });
@@ -124,7 +106,7 @@ test('should show correct feedback after clicking wrong canvas area', async ({ p
 });
 
   test('should display progress dots in game screen', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     await page.click('#start-btn');
     await page.waitForSelector('#game-screen:not(.hidden)', { timeout: 60000 });
     const screenClass = await page.locator('#game-screen').getAttribute('class');
@@ -134,7 +116,7 @@ test('should show correct feedback after clicking wrong canvas area', async ({ p
   });
 
   test('should display 4 answer buttons for number game', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     await page.click('#start-btn');
     await page.waitForSelector('#answer-buttons', { timeout: 60000 });
     const buttons = await page.$$('#answer-buttons button');
@@ -143,7 +125,7 @@ test('should show correct feedback after clicking wrong canvas area', async ({ p
   });
 
   test('should display 6 answer buttons for color game', async ({ page }) => {
-    await page.goto(`${base}/index.html`);
+    await page.goto(`/index.html`);
     await page.click('#color-start-btn');
     await page.waitForSelector('#color-answer-buttons', { timeout: 60000 });
     const buttons = await page.$$('#color-answer-buttons button');

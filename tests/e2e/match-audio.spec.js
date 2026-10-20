@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 const instruction = '/audio/match-instruction.mp3';
 const correct = '/audio/correct.mp3';
 const retry = '/audio/retry.mp3';
@@ -29,7 +28,7 @@ test.beforeEach(async ({ page }) => {
       };
     }
   });
-  await page.goto(base);
+  await page.goto('/');
   await page.locator('#match-start-btn').click();
   await playing(page, instruction);
 });
@@ -95,7 +94,7 @@ test('leaving cancels speech and a pending mismatch, including after restart', a
   await page.locator('#animal-start-btn').click();
   await expect.poll(() => voices(page)).toContain('/audio/sound-question.mp3');
   for (const path of [instruction, correct, retry, complete]) {
-    const response = await page.request.get(base + path);
+    const response = await page.request.get(path);
     expect(response.status()).toBe(200);
     expect(response.headers()['content-type']).toContain('audio/');
   }

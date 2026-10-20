@@ -12,13 +12,14 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 PUBLICATION_FILES = {
     '.gitignore', 'README.md', 'THIRD_PARTY_NOTICES.md',
-    'docs/architecture.md', 'docs/publication-license-review.json',
+    'docs/architecture.md', 'docs/check-report.json', 'docs/publication-license-review.json',
     'docs/source-manifest.json', 'docs/validation.md',
     'docs/media/01-home.png', 'docs/media/02-count.png', 'docs/media/03-color.png',
     'docs/media/04-shiritori.png', 'docs/media/05-block.png', 'docs/media/06-result.png',
     'docs/media/capture-report.json', 'docs/media/walkthrough.gif', 'docs/media/walkthrough.webm',
     'scripts/audit_publication.py', 'scripts/capture_portfolio.mjs', 'scripts/run_checks.mjs',
-    'tests/test_publication_audit.py',
+    'scripts/sync_from_monorepo.py',
+    'tests/test_publication_audit.py', 'tests/test_sync_from_monorepo.py',
 }
 PATTERNS = {
     'private-key': re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),

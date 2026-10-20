@@ -41,6 +41,7 @@ Wrangler はこのリポジトリの依存に含めていません。
 
 収録元は運用リポジトリのコミット済みファイルです。履歴と未コミットのファイルは含めていません。
 収録しなかったファイルと理由、公開のために変えたファイルは [source-manifest.json](source-manifest.json) に記録しています。
+収録は `scripts/sync_from_monorepo.py` が manifest の除外と公開用の変更に従って行います。
 
 | 対象 | 理由 |
 | --- | --- |

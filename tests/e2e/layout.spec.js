@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 const games = [
   ['start-btn', 'game-screen', 4],
   ['color-start-btn', 'color-game-screen', 6],
@@ -74,12 +73,12 @@ for (const [width, height] of [[320, 568], [375, 667], [390, 600], [414, 736], [
     await page.setViewportSize({ width, height });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto(base);
+    await page.goto('/');
     await checkFit(page);
     await expect(page.locator('.mode-buttons button')).toHaveCount(9);
     if (width === 375 || (width === 1024 && height === 768)) await page.screenshot({ path: `test-results/layout-${width}-home.png` });
     for (const [button, screen, count] of games) {
-      await page.goto(base);
+      await page.goto('/');
       await page.locator(`#${button}`).click();
       await expect(page.locator(`#${screen}`)).toBeVisible();
       if (count) await expect(page.locator(`#${screen} .answer-btn, #${screen} .match-card, #${screen} .puzzle-silhouette`)).toHaveCount(count);
@@ -150,7 +149,7 @@ test('feedback repeats on the right screen without moving answers', async ({ pag
   await page.setViewportSize({ width: 320, height: 568 });
   await page.clock.install();
   for (const [button, screen] of games.slice(0, 3)) {
-    await page.goto(base);
+    await page.goto('/');
     await page.locator(`#${button}`).click();
     const answers = page.locator(`#${screen} .answer-buttons`);
     const bounds = await answers.boundingBox();
@@ -169,7 +168,7 @@ test('feedback repeats on the right screen without moving answers', async ({ pag
 });
 
 test('layout adapts during a game and sound replay is keyboard accessible', async ({ page }) => {
-  await page.goto(base);
+  await page.goto('/');
   await page.locator('#animal-start-btn').click();
   for (const viewport of [{ width: 375, height: 667 }, { width: 1024, height: 768 }, { width: 375, height: 600 }]) {
     await page.setViewportSize(viewport);
@@ -185,7 +184,7 @@ test('layout adapts during a game and sound replay is keyboard accessible', asyn
 
 
 test('number questions cover 1–10 with four distinct valid choices', async ({ page }) => {
-  await page.goto(base);
+  await page.goto('/');
   await page.locator('#start-btn').click();
   const questions = await page.evaluate(() => {
     const game = window.gameApp.countGame;
@@ -228,7 +227,7 @@ test('number questions cover 1–10 with four distinct valid choices', async ({ 
 test('random pictures stay still while answering and fit after resize', async ({ page }) => {
   await page.clock.install();
   await page.setViewportSize({ width: 320, height: 568 });
-  await page.goto(base);
+  await page.goto('/');
   await page.locator('#start-btn').click();
   const positions = () => page.locator('#picture-area .picture-item').evaluateAll(items => items.map(item => ({ left: item.style.left, top: item.style.top, size: getComputedStyle(item).fontSize })));
   let previous;
@@ -274,7 +273,7 @@ for (const [width, height] of [[667, 375], [844, 390]]) {
   test(`word and block play surfaces fit short landscape ${width}×${height}`, async ({page}) => {
     await page.setViewportSize({width,height});
     for (const game of ['shiritori', 'block']) {
-      await page.goto(base);
+      await page.goto('/');
       await page.locator(`#${game}-start-btn`).click();
       if (game === 'block') await page.evaluate(() => {
         const g=window.gameApp.blockGame;g.state.questionsAnswered=2;g.beginRound();

@@ -1,17 +1,27 @@
 {
   "snapshot_date": "2026-10-20",
-  "basis": "Committed application source from the operational repository at the commit recorded in docs/validation.md; no operational repository history or uncommitted files.",
+  "basis": "Committed application source from the operational repository at source_commit, imported by scripts/sync_from_monorepo.py; no operational repository history or uncommitted files.",
   "excluded": [
     {
-      "path": ".github/workflows/cloud-build.yaml, cloudbuild.yaml, Dockerfile, nginx.conf",
+      "paths": [
+        ".github/workflows/cloud-build.yaml",
+        "cloudbuild.yaml",
+        "Dockerfile",
+        "nginx.conf"
+      ],
       "reason": "Retired Cloud Run deployment path; production uses Cloudflare Workers Static Assets."
     },
     {
-      "path": ".hallmark/log.json, README-cloudflare.md",
+      "paths": [
+        ".hallmark/log.json",
+        "README-cloudflare.md"
+      ],
       "reason": "Operational log and deployment notes with internal issue and version identifiers; deployment steps are summarised in docs/architecture.md."
     },
     {
-      "path": ".gitignore",
+      "paths": [
+        ".gitignore"
+      ],
       "reason": "Replaced by a publication .gitignore."
     }
   ],
@@ -837,6 +847,11 @@
       "mode": "100644"
     },
     {
+      "path": "playwright.config.js",
+      "sha256": "1cd0a76796f668c9a7314e19b8c80802979d25300142f793f0dc2b562bd27be5",
+      "mode": "100644"
+    },
+    {
       "path": "scripts/build-cloudflare.py",
       "sha256": "7c0ff6f1e8ccbb2a8a1bc0921853875eefbf31a434debdb53de09aa9a5721fc8",
       "mode": "100644"
@@ -998,97 +1013,57 @@
     },
     {
       "path": "tests/e2e/blocks.spec.js",
-      "sha256": "7c63f0df142d4082e36d362c5d8ed90f0e1fe713556a600367dfe97c6fbb632d",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-console.spec.js",
-      "sha256": "6a5f88960c2875d6357c86b5cf78f131e76b24e20174c2392c0ebe6119627627",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-content.spec.js",
-      "sha256": "8f1dc04a79c89d580f4dc6db8587256845be2a599fc32362351786e7cee35c5b",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-direct.spec.js",
-      "sha256": "9f81b755898f555a3c65ab24517fe34ce28fdcb92d04866a29d1932d19cd45e0",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-eval.spec.js",
-      "sha256": "a5513bbe81e9a3ac90c9058ddd46b48bca16bec02d4d82a835ead3c213ba534e",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-fetch-content.spec.js",
-      "sha256": "b94223f9c4767bf0c1bf5b4a7fbd80c2715ed79d230ada48f61e6e09244d8a03",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-fetch.spec.js",
-      "sha256": "68961b41f2e182a6466fac5c9f8fa07fcf86c7413670c2f390eca32a485713b7",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-headers.spec.js",
-      "sha256": "3594ad4b2e4d1cb9d9d6e23ed060e0e6fdd36a38f5aa73f65ac73adfb170db20",
-      "mode": "100644"
-    },
-    {
-      "path": "tests/e2e/esm-syntax.spec.js",
-      "sha256": "49278c96a61630b411af4cf8458e1fef5fb2798cd4227e91777be59b990373fd",
+      "sha256": "0d3ab5e44f3ee56c9693dacb8ce6c3985fc8b9f2e29e64fd27fec1a1dde94077",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/game.spec.js",
-      "sha256": "e73c5bb2fe0f7ba70b66a9ac53b3e4751254c6bbf1f3d38fb9476caf29577546",
+      "sha256": "5565c2f692a9e5aa05fcd13d798503d5672e6185e6506793b033057e0c2966dc",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/layout.spec.js",
-      "sha256": "6c6084e3b15e43a01fc1c2c60fd02a964903ddfe14a77ba6b472c40be52befea",
+      "sha256": "3a52063235156340f04e106f412838ebd84890dea912e9bbe1f99839e3231a76",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/match-audio.spec.js",
-      "sha256": "7b408c4febb30604ecbe297272ad42ce0af258dc369eb49a05192aab70d62d58",
+      "sha256": "1bbedec4835f5b484b7f3c8fee33a20e21e8342b166b7cdac242ff8a28c00d5e",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/match-score.spec.js",
-      "sha256": "ad57e69aa77f8b8aeb49e9694f3f260f390c0682cfbc639fada1eba6a731666a",
+      "sha256": "239c26b27737d9ffcbc4f66595a32c4c2260f0c17f4d91ec1dfd4d7d6cf7db95",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/maze-rounds.spec.js",
-      "sha256": "fbd0219f0e223fd3289a1cc42f177d61103593288a0a3fdf2b7b7849f4e3512d",
+      "sha256": "a2321c366b19a5c5ea8e7c5ba551f605c53af2ac50da2873ae81e84b75f7b9e8",
       "mode": "100644"
     },
     {
-      "path": "tests/e2e/network-events.spec.js",
-      "sha256": "efb08bbfe8056120bf7afab8092c8619f59c14db85f70b3e42ae30c5c01a3044",
+      "path": "tests/e2e/module-loading.spec.js",
+      "sha256": "0481a060b93ee13bd7822c5be8c2c93761938f1e765966f3904f3e7217b2cb89",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/progress.spec.js",
-      "sha256": "cbe9ff3fc7ed3a1566f9e74c8e0072869431d3c0818ae0852f8b473a6f3bcdb7",
+      "sha256": "1d99f493db1ca22d33f1965bfc2ed8d56e0c7a3604cdbd9e14aef4861c452bd4",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/puzzle-silhouette.spec.js",
-      "sha256": "acf5b52ad955d1bb7f9495422cd898fd72c4bb92439abb98cf37e35638c9e96e",
+      "sha256": "2b2286ccfb0d5c8c7eec056ad919d50b48b09075dac6383ef68d8b1970252de2",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/result-navigation.spec.js",
-      "sha256": "9042a46c02b38be0d3933fdb7fd796c1db317164513487d75ecf7cf3354d2e86",
+      "sha256": "f146406da0ac268bc7ef9e4a1281f7cf6d16c0452efd29fcff29845eb9cddfd1",
       "mode": "100644"
     },
     {
       "path": "tests/e2e/shiritori.spec.js",
-      "sha256": "1acf7eabfb236490d5fcb1662038ae844eb8abf2db4eaf1ebea49bb41b9bca5a",
+      "sha256": "c8cab61b442474cde04f9f66b994400c248ed7bb0bb5155709ae0230c8ca48a9",
       "mode": "100644"
     },
     {
@@ -1124,6 +1099,11 @@
   ],
   "publication_adjustments": [
     {
+      "path": "generate-voicevox-audio.cjs",
+      "reason": "Replaced the absolute operational output path with a path relative to the script so the generator works from any checkout.",
+      "published_sha256": "a522e37ddd853e583aa86b2fae0183ea72bae4c572521b8f134131f39fa2fb03"
+    },
+    {
       "path": "index.html",
       "reason": "Removed the local-network visit-log script tag; it only works inside the private LAN and is not part of the game.",
       "published_sha256": "b1edc81cb387b401bef01654a498fd5c5fa487abda4e8694f9ddd922e78c3a18"
@@ -1132,11 +1112,7 @@
       "path": "migration.html",
       "reason": "Removed the local-network visit-log script tag; it only works inside the private LAN and is not part of the game.",
       "published_sha256": "1559a27a7c843f1e2c13deb317fc6e580b769f42ceb94d529a2abdc5c0d75692"
-    },
-    {
-      "path": "generate-voicevox-audio.cjs",
-      "reason": "Replaced the absolute operational output path with a path relative to the script so the generator works from any checkout.",
-      "published_sha256": "a522e37ddd853e583aa86b2fae0183ea72bae4c572521b8f134131f39fa2fb03"
     }
-  ]
+  ],
+  "source_commit": "741d35353aab414b064050dcf8e08ffc3da59ab8"
 }

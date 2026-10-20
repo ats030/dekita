@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { normalizeCells, rotateCells } from '../../src/modules/utils/blocks/BlockPuzzle.js';
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 test.use({ hasTouch: true });
 test.beforeEach(async ({page}) => {
   await page.clock.install({time:new Date('2026-01-01')});
@@ -11,7 +10,7 @@ test.beforeEach(async ({page}) => {
     const original=HTMLMediaElement.prototype.play;
     HTMLMediaElement.prototype.play=function(...args){window.playedAudio.push(this);return original.apply(this,args);};
   });
-  await page.goto(base);
+  await page.goto('/');
 });
 const cell=(page,x,y)=>page.locator(`#block-board [data-column="${x}"][data-row="${y}"]`);
 const button=(page,id)=>page.locator(`#block-tray [data-piece="${id}"]`);
@@ -165,7 +164,7 @@ test('leaving a finished frame stops speech and pending next; re-entering starts
   await page.locator('#block-start-btn').click();
   await expect(page.locator('#block-board .occupied')).toHaveCount(0);
   await expect(page.locator('#block-progress')).toHaveAttribute('aria-valuenow','0');
-  const response=await page.request.get(`${base}/audio/block-instruction.mp3`);
+  const response=await page.request.get(`/audio/block-instruction.mp3`);
   expect(response.status()).toBe(200);
   expect((await response.body()).length).toBeGreaterThan(1000);
   await expect.poll(()=>page.evaluate(()=>{

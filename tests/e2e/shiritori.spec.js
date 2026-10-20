@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { SHIRITORI_AUDIO, SHIRITORI_COURSES } from '../../src/modules/data/ShiritoriWords.js';
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
-
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-01-01') });
   await page.clock.pauseAt(new Date('2026-01-01T00:00:01Z'));
@@ -14,7 +12,7 @@ test.beforeEach(async ({ page }) => {
       return original.apply(this, args);
     };
   });
-  await page.goto(base);
+  await page.goto('/');
 });
 const correctId = page => page.evaluate(() => {
   const game = window.gameApp.shiritoriGame;
@@ -112,7 +110,7 @@ test('leaving during a correct answer cancels its timer and all speech', async (
 
 test('static voices are playable and the current word can be heard again with keyboard', async ({ page }) => {
   for (const line of SHIRITORI_AUDIO) {
-    const response = await page.request.get(`${base}/audio/${line.filename}`);
+    const response = await page.request.get(`/audio/${line.filename}`);
     expect(response.status(), line.filename).toBe(200);
     expect((await response.body()).length).toBeGreaterThan(1000);
   }

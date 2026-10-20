@@ -1,9 +1,8 @@
 import { test, expect } from '@playwright/test';
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 for (const sharedScore of [0, 17]) {
   test(`matching all pairs preserves its internal score with shared score ${sharedScore}`, async ({ page }) => {
     await page.route('http://ubuntu-server-app:8526/**', route => route.abort());
-    await page.goto(base);
+    await page.goto('/');
     await page.locator('#match-start-btn').click();
     await page.evaluate(value => { window.gameApp.gameState.score = value; }, sharedScore);
     const cells = await page.evaluate(() => window.gameApp.matchGame.grid.flat().map(({x, y, value}) => ({x, y, value})));

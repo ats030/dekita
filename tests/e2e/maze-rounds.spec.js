@@ -1,13 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 test.use({ hasTouch: true });
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-01-01T00:00:00Z') });
   await page.clock.pauseAt(new Date('2026-01-01T00:00:01Z'));
   await page.route('http://ubuntu-server-app:8526/**', route => route.abort());
-  await page.goto(base);
+  await page.goto('/');
   await page.locator('#maze-start-btn').click();
 });
 

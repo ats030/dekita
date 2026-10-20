@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
 const games = [
   ['countGame', 'start-btn', 'game-screen', 10],
   ['colorGame', 'color-start-btn', 'color-game-screen', 10],
@@ -25,7 +24,7 @@ for (const [width, height] of [[320, 568], [1024, 768]]) {
           return original.apply(this, args);
         };
       });
-      await page.goto(base);
+      await page.goto('/');
       // Finish a different game first to exercise shared state and replay history.
       await page.locator('#puzzle-start-btn').click();
       await page.evaluate(() => window.gameApp.puzzleGame.endGame());

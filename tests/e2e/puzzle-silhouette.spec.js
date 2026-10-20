@@ -1,14 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-const base = process.env.DEKITA_TEST_URL || 'http://127.0.0.1:8525';
-
 for (const [width, height] of [[320, 568], [1024, 768]]) {
   test(`silhouettes reveal only the correct picture and reset next round ${width}×${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height });
     await page.clock.install({ time: new Date('2026-01-01T00:00:00Z') });
     await page.clock.pauseAt(new Date('2026-01-01T00:00:01Z'));
     await page.route('http://ubuntu-server-app:8526/**', route => route.abort());
-    await page.goto(base);
+    await page.goto('/');
     await page.locator('#puzzle-start-btn').click();
     const shapes = page.locator('.puzzle-shape');
     await expect(shapes).toHaveCount(9);
