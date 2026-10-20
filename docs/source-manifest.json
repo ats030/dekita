@@ -16,7 +16,7 @@
     },
     {
       "path": "tests/e2e/esm-*.spec.js, tests/e2e/network-events.spec.js",
-      "reason": "Debugging probes fixed to one local port; some fetch from about:blank or require a display. Module loading is covered by layout.spec.js, which opens every screen and asserts no page errors."
+      "reason": "Module-loading debugging probes. They pass headless against the app origin since monorepo commit e8e3fa4d, but duplicate coverage: module loading is covered by layout.spec.js, which opens every screen and asserts no page errors."
     }
   ],
   "files": [

@@ -46,7 +46,7 @@ Wrangler はこのリポジトリの依存に含めていません。
 | --- | --- |
 | Cloud Run 用の Dockerfile、nginx 設定、Cloud Build 設定 | 退役した配備経路のため |
 | 運用ログ、Cloudflare 配備メモ | 内部の課題番号や版の識別子を含むため。配備手順は本書にまとめた |
-| `tests/e2e/esm-*.spec.js`、`network-events.spec.js` | 特定ポートに固定した調査用のプローブで、環境に依存して失敗するため。モジュールの読み込みは、全画面を開く layout.spec.js がページエラーなしを確認する |
+| `tests/e2e/esm-*.spec.js`、`network-events.spec.js` | モジュール読み込みの調査用プローブで、確認内容が重複するため(運用側のコミット `e8e3fa4d` 以降はヘッドレスで通ります)。モジュールの読み込みは、全画面を開く layout.spec.js がページエラーなしを確認する |
 
 公開のために変えたファイルは3つです。
 `index.html` と `migration.html` からは、自宅LAN内でしか動かないアクセス記録のタグを外しました。
