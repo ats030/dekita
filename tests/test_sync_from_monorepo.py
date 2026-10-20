@@ -27,13 +27,12 @@ class SyncFromMonorepoTest(unittest.TestCase):
         for name in ('sync_from_monorepo.py', 'audit_publication.py'):
             shutil.copyfile(ROOT / 'scripts' / name, self.root / 'scripts' / name)
         (self.root / 'old.js').write_text('retired\n')
-        reasons = ['index.html', 'migration.html', 'generate-voicevox-audio.cjs']
+        reasons = ['index.html', 'generate-voicevox-audio.cjs']
         (self.root / 'docs/source-manifest.json').write_text(json.dumps({
             'excluded': [{'paths': ['Dockerfile'], 'reason': 'retired'}],
             'files': [{'path': 'old.js', 'sha256': '', 'mode': '100644'}],
             'publication_adjustments': [{'path': p, 'reason': 'r', 'published_sha256': ''} for p in reasons]}))
-        for name in ('index.html', 'migration.html'):
-            (app / name).write_text('<head>\n' + TAG + '</head>\n')
+        (app / 'index.html').write_text('<head>\n' + TAG + '</head>\n')
         (app / 'generate-voicevox-audio.cjs').write_text("const OUTPUT_DIR = '/srv/app/audio';\n")
         (app / 'main.js').write_text('main\n')
         (app / 'Dockerfile').write_text('FROM retired\n')
@@ -51,8 +50,7 @@ class SyncFromMonorepoTest(unittest.TestCase):
 
     def sync(self, *extra):
         return subprocess.run([sys.executable, 'scripts/sync_from_monorepo.py', str(self.source), 'HEAD',
-                               '--add', 'generate-voicevox-audio.cjs', '--add', 'index.html',
-                               '--add', 'migration.html', *extra],
+                               '--add', 'generate-voicevox-audio.cjs', '--add', 'index.html', *extra],
                               cwd=self.root, env=ENV, text=True, capture_output=True)
 
     def test_imports_adjusts_excludes_and_removes(self):
@@ -64,7 +62,7 @@ class SyncFromMonorepoTest(unittest.TestCase):
         self.assertFalse((self.root / 'old.js').exists())
         manifest = json.loads((self.root / 'docs/source-manifest.json').read_text())
         files = {item['path']: item['sha256'] for item in manifest['files']}
-        self.assertEqual(sorted(files), ['generate-voicevox-audio.cjs', 'index.html', 'main.js', 'migration.html'])
+        self.assertEqual(sorted(files), ['generate-voicevox-audio.cjs', 'index.html', 'main.js'])
         source = (self.source / 'app/dekita/index.html').read_bytes()
         self.assertEqual(files['index.html'], hashlib.sha256(source).hexdigest())
         published = {item['path']: item['published_sha256'] for item in manifest['publication_adjustments']}

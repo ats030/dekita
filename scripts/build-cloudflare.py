@@ -12,7 +12,7 @@ def build():
     if OUTPUT.exists():
         shutil.rmtree(OUTPUT)
     OUTPUT.mkdir()
-    for name in ("index.html", "style.css", "favicon.svg", "migration.html", "migration.js", "_headers"):
+    for name in ("index.html", "style.css", "favicon.svg", "_headers"):
         source = ROOT / name
         if source.is_symlink():
             raise RuntimeError(f"symbolic link is not a public asset: {name}")

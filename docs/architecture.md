@@ -14,7 +14,6 @@
 | 出題データ | `src/modules/data/` | 文字、しりとりの単語、音声の対応表 |
 | 生成処理 | `src/modules/utils/` | 迷路の経路生成、ブロックの敷き詰め生成、絵の配置、乱数 |
 | 音声 | `audio/*.mp3` | VOICEVOX:ずんだもん で事前生成した問題文、声かけ、動物の鳴き声 |
-| 引き継ぎ | `migration.html`、`migration.js` | 旧配信先から新配信先へハイスコアをファイルで移す保護者向けページ |
 
 保存するのは端末の localStorage にあるハイスコアだけです。
 アカウント、通信による記録の送信、解析用のタグはありません。
@@ -29,7 +28,7 @@ Wrangler はこのリポジトリの依存に含めていません。
 利用プランと規約の確認は [tool-license-cloudflare.yaml](tool-license-cloudflare.yaml) に記録しています。
 この記録の adoption 欄にある「ikimono-note」は、元の記録の誤記をそのまま収録したものです。
 
-`scripts/check-cloudflare.mjs` は、`wrangler dev` または配備先のURLに対して画面の遷移とハイスコアの引き継ぎを確認します。
+`scripts/check-cloudflare.mjs` は、`wrangler dev` または配備先のURLに対して画面の遷移とハイスコアの保持を確認します。
 
 ## 音声の生成
 
@@ -47,6 +46,6 @@ Wrangler はこのリポジトリの依存に含めていません。
 | --- | --- |
 | 運用ログ、Cloudflare 配備メモ | 内部の課題番号や版の識別子を含むため。配備手順は本書にまとめた |
 
-公開のために変えたファイルは3つです。
-`index.html` と `migration.html` からは、自宅LAN内でしか動かないアクセス記録のタグを外しました。
+公開のために変えたファイルは2つです。
+`index.html` からは、自宅LAN内でしか動かないアクセス記録のタグを外しました。
 `generate-voicevox-audio.cjs` は、運用環境の絶対パスだった出力先をスクリプトからの相対パスにしました。

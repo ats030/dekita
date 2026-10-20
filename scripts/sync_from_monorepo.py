@@ -24,7 +24,6 @@ MANIFEST = ROOT / 'docs/source-manifest.json'
 VISIT_LOG = re.compile(r'^[ \t]*<script src="http://[^"]*:' + '8526' + r'/v\.js"[^\n]*\n', re.M)
 ADJUSTMENTS = {
     'index.html': lambda text: VISIT_LOG.subn('', text),
-    'migration.html': lambda text: VISIT_LOG.subn('', text),
     'generate-voicevox-audio.cjs': lambda text: re.subn(
         r"^const OUTPUT_DIR = '[^']*';$", "const OUTPUT_DIR = path.join(__dirname, 'audio');", text, flags=re.M),
 }

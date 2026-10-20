@@ -818,16 +818,6 @@
       "mode": "100644"
     },
     {
-      "path": "migration.html",
-      "sha256": "3090aa60829fec37ebead43d2de4e02347fd5baca2efc513789fb3f2e268d5b2",
-      "mode": "100644"
-    },
-    {
-      "path": "migration.js",
-      "sha256": "09f0a198f4e383c06fea0e66ed5465a0f491515875acb8e8ffaa17d3c7cc2efc",
-      "mode": "100644"
-    },
-    {
       "path": "package-lock.json",
       "sha256": "ac484d86705c8f49ab2a92cefd1d17695bba15d28fdc79bcc14cf5a5aff0b39d",
       "mode": "100644"
@@ -844,12 +834,12 @@
     },
     {
       "path": "scripts/build-cloudflare.py",
-      "sha256": "7c0ff6f1e8ccbb2a8a1bc0921853875eefbf31a434debdb53de09aa9a5721fc8",
+      "sha256": "396c7ec619de2316fc4b56a46a9670ade2632a1d5c199a7c37243e4148068320",
       "mode": "100644"
     },
     {
       "path": "scripts/check-cloudflare.mjs",
-      "sha256": "48eba96ae2708fd94c036a5c6cb3326ea2fa7f7e71a81863364e46354aa03a58",
+      "sha256": "bd597544fbbebb87f3e0de6c7e1985a389db3c8fe129ed449bd3214dcbd773b3",
       "mode": "100644"
     },
     {
@@ -1098,12 +1088,7 @@
       "path": "index.html",
       "reason": "Removed the local-network visit-log script tag; it only works inside the private LAN and is not part of the game.",
       "published_sha256": "b1edc81cb387b401bef01654a498fd5c5fa487abda4e8694f9ddd922e78c3a18"
-    },
-    {
-      "path": "migration.html",
-      "reason": "Removed the local-network visit-log script tag; it only works inside the private LAN and is not part of the game.",
-      "published_sha256": "1559a27a7c843f1e2c13deb317fc6e580b769f42ceb94d529a2abdc5c0d75692"
     }
   ],
-  "source_commit": "232a86c07c4072e832bd14caa85a280ac4f9eed1"
+  "source_commit": "a33cef61c5b88448144deb2c695667b4c8f3f0ab"
 }
