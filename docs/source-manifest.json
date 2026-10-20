@@ -847,7 +847,7 @@
     },
     {
       "path": "scripts/check-cloudflare.mjs",
-      "sha256": "285adc1c42d3d5eb43e68a03c55c43a239c205d000ff879159f3c4bff8108969",
+      "sha256": "48eba96ae2708fd94c036a5c6cb3326ea2fa7f7e71a81863364e46354aa03a58",
       "mode": "100644"
     },
     {

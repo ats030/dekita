@@ -12,13 +12,19 @@ try {
   oldPage.on('pageerror', error => errors.push(error.message));
   // Existing local-only analytics must not trigger LAN requests in this check.
   await oldContext.route('http://ubuntu-server-app:8526/**', route => route.abort());
-  for (const [button, screen] of [
+  const games = [
     ['start-btn', 'game-screen'], ['color-start-btn', 'color-game-screen'],
     ['animal-start-btn', 'animal-game-screen'], ['maze-start-btn', 'maze-play-screen'],
     ['match-start-btn', 'match-game-screen'], ['puzzle-start-btn', 'puzzle-game-screen'],
-    ['shiritori-start-btn', 'shiritori-game-screen'],
+    ['shiritori-start-btn', 'shiritori-game-screen'], ['moji-start-btn', 'moji-game-screen'],
     ['block-start-btn', 'block-game-screen'],
-  ]) {
+  ];
+  await oldPage.goto(base);
+  // Every title-screen game button must be covered so a newly added game cannot be skipped silently.
+  assert.deepEqual(
+    (await oldPage.locator('#title-screen .game-btn').evaluateAll(buttons => buttons.map(b => b.id))).sort(),
+    games.map(([button]) => button).sort(), 'check must cover every title-screen game');
+  for (const [button, screen] of games) {
     await oldPage.goto(base);
     await oldPage.click(`#${button}`);
     await oldPage.waitForSelector(`#${screen}:not(.hidden)`);
@@ -94,7 +100,7 @@ try {
   await newPage.reload();
   await newPage.waitForFunction(() => window.gameApp?.gameState);
   assert.equal(await newPage.evaluate(() => window.gameApp.gameState.highScore), 20);
-  console.log('PASS: eight game screens, audio delivery, headers, private-file exclusion, score transfer, invalid-file rejection and score preservation after completion');
+  console.log('PASS: nine game screens, audio delivery, headers, private-file exclusion, score transfer, invalid-file rejection and score preservation after completion');
 } finally {
   await browser.close();
 }
